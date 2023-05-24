@@ -8,7 +8,7 @@ metadata:
   tags:
     - internal
 spec:
-  type: component
+  type: service
   lifecycle: experimental
   owner: toast-infra
   system: soundcheck
