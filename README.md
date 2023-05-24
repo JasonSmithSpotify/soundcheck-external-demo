@@ -1,1 +1,0 @@
-# soundcheck-external-demo
