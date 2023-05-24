@@ -6,7 +6,7 @@ metadata:
   annotations:
     pagerduty.com/integration-key: dsadsadsadsadsadsa
   tags:
-    - internalish
+    - invalid
 spec:
   type: service
   lifecycle: experimental
