@@ -8,6 +8,7 @@ metadata:
   tags:
     - internal
 spec:
+  subcomponentOf: queue-proxy
   type: service
   lifecycle: experimental
   owner: toast-infra
