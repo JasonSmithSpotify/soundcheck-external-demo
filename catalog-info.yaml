@@ -1,6 +1,7 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
+  namespace: "default"
   name: soundcheck-external-demo
   description: SCE Demo Component
   annotations:
