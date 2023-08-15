@@ -29,8 +29,8 @@ metadata:
     - title: "Chat Support"
       url: "https://<redacted>"
   tags:
-    - <redacted1>
-    - <redacted2>
+    - redacted1
+    - redacted2
   uid: "651a05b7-3bbd-4695-a545-1c1c9306baa3"
   etag: "023001a7c5f3912d682e8882e10c20f62f6a2fd9"
 spec:
