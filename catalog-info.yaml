@@ -23,8 +23,6 @@ metadata:
     servicenow/modelId: "Domain Services"
     octopus.com/project-id: "<redacted>"
     octopus.com/space-id: "<redacted>"
-  tags:
-    - internal
   links:
     - title: "Technical Documentation"
       url: "https://<redacted>.atlassian.net/wiki/spaces/BAT/overview"
