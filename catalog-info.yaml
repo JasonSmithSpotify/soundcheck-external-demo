@@ -2,7 +2,7 @@ apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
   namespace: "default",
-  name: "Backstage.Demo.API",
+  name: Backstage.Demo.API,
   description: "Demo APi for backstage\n",
   annotations:
     backstage.io/managed-by-location: "url:https://github.com/<redacted>/Backstage.Demo.Api/tree/main/catalog-info.yaml",
