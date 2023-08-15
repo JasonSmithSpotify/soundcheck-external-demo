@@ -7,10 +7,10 @@ metadata:
   annotations:
     backstage.io/managed-by-location: "url:https://github.com/<redacted>/Backstage.Demo.Api/tree/main/catalog-info.yaml"
     backstage.io/managed-by-origin-location: "url:https://github.com/<redacted>/Backstage.Demo.Api/tree/main/catalog-info.yaml"
-    backstage.io/view-url: "https://github.com/<redacted>/Backstage.Demo.Api/tree/main/catalog-info.yaml"
-    backstage.io/edit-url: "https://github.com/<redacted>/Backstage.Demo.Api/edit/main/catalog-info.yaml"
-    backstage.io/source-location: "url:https://github.com/<redacted>/Backstage.Demo.Api/tree/main/"
-    github.com/project-slug: "<redacted>/Backstage.Demo.API"
+    backstage.io/view-url: "https://github.com/abc/Backstage.Demo.Api/tree/main/catalog-info.yaml"
+    backstage.io/edit-url: "https://github.com/def/Backstage.Demo.Api/edit/main/catalog-info.yaml"
+    backstage.io/source-location: "url:https://github.com/hij/Backstage.Demo.Api/tree/main/"
+    github.com/project-slug: "something/Backstage.Demo.API"
     backstage.io/techdocs-ref: "dir:."
     backstage.io/kubernetes-label-selector: "app.kubernetes.io/instance=Backstage.Demo.API}"
     servicenow/environments: "Staging,Production"
@@ -25,9 +25,9 @@ metadata:
     octopus.com/space-id: "<redacted>"
   links:
     - title: "Technical Documentation"
-      url: "https://<redacted>.atlassian.net/wiki/spaces/BAT/overview"
+      url: "https://fake.atlassian.net/wiki/spaces/BAT/overview"
     - title: "Chat Support"
-      url: "https://<redacted>"
+      url: "https://google.com"
   tags:
     - redacted1
     - redacted2
@@ -35,5 +35,5 @@ metadata:
   etag: "023001a7c5f3912d682e8882e10c20f62f6a2fd9"
 spec:
   type: "service"
-  owner: "group:default/<recacted>"
+  owner: "group:default/someGroup"
   lifecycle: "production"
