@@ -28,6 +28,7 @@ metadata:
       url: "https://fake.atlassian.net/wiki/spaces/BAT/overview"
     - title: "Chat Support"
       url: "https://google.com"
+      icon: "web"
   tags:
     - redacted1
     - redacted2
