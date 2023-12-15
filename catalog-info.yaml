@@ -25,6 +25,7 @@ metadata:
     octopus.com/space-id: "<redacted>"
   links:
     - url: "https://fake.atlassian.net/wiki/spaces/BAT/overview"
+      title: "Fake"
     - url: "https://google.com"
       icon: "web"
   tags:
