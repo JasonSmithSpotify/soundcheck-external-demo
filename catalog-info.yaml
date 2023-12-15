@@ -24,10 +24,8 @@ metadata:
     octopus.com/project-id: "<redacted>"
     octopus.com/space-id: "<redacted>"
   links:
-    - title: "Technical Documentation"
-      url: "https://fake.atlassian.net/wiki/spaces/BAT/overview"
-    - title: "Chat Support"
-      url: "https://google.com"
+    - url: "https://fake.atlassian.net/wiki/spaces/BAT/overview"
+    - url: "https://google.com"
       icon: "web"
   tags:
     - redacted1
