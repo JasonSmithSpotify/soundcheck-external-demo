@@ -1,0 +1,49 @@
+---
+- id: has-production-lifecycle
+  ownerEntityRef: group:default/toast-infra
+  name: Has Production Lifecycle
+  description: Ensures the component has a production lifecycle.
+  rule:
+    factRef: catalog:default/entity_descriptor
+    path: $.spec.lifecycle
+    operator: equal
+    value: production
+  passedMessage: Component has a production lifecycle.
+  failedMessage: Component does not have a production lifecycle.
+
+- id: code-coverage-check
+  ownerEntityRef: group:default/toast-infra
+  name: Code Coverage Check
+  description: Ensure code coverage meets the minimum threshold.
+  rule:
+    all:
+      - factRef: source:scope/codeCoveragePercentage
+        path: $.percentage
+        operator: greaterThanInclusive
+        value: 80
+  passedMessage: Code coverage meets the minimum threshold.
+  failedMessage: Code coverage does not meet the minimum threshold.
+
+- id: unit-tests-check
+  ownerEntityRef: group:default/toast-infra
+  name: Unit Tests Check
+  description: Ensure all unit tests are passing.
+  rule:
+    factRef: source:scope/unitTestsPassing
+    path: $.passing
+    operator: equals
+    value: true
+  passedMessage: All unit tests are passing.
+  failedMessage: Some unit tests are failing.
+
+- id: dependency-check
+  ownerEntityRef: group:default/imaginary-goats
+  name: Dependency Check
+  description: Ensure there are no known security vulnerabilities in dependencies.
+  rule:
+    factRef: source:scope/vulnerabilitiesCount
+    path: $.count
+    operator: equals
+    value: 0
+  passedMessage: No known security vulnerabilities found in dependencies.
+  failedMessage: Known security vulnerabilities found in dependencies.
