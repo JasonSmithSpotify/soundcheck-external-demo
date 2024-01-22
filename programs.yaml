@@ -1,0 +1,270 @@
+---
+- id: test-certified
+  name: Test Certified
+  ownerEntityRef: group:default/imaginary-goats
+  description: |
+    Improve **quality** and **reliability** of your software component
+    by measuring the use of testing best practices.
+  filter:
+    catalog:
+      spec.lifecycle: 'production'
+  documentationURL: https://www.backstage.io
+  levels:
+    - ordinal: 1
+      checks:
+        - id: has-production-lifecycle
+          name: Has Production Lifecycle
+          description: >
+            Verifies that the component has a production lifecycle.
+        - id: tests-run
+          name: Tests run on CI
+          description: >
+            Indicates whether your system is set up correctly to run tests and
+            report the results. You must have at least one test.
+        - id: coverage-collected
+          name: Coverage is known
+          description: >
+            Indicates whether your system is set up correctly to report
+            coverage. Coverage must be greater than 0%.
+        - id: static-analysis-performed
+          name: Static analysis performed
+          description: >
+            Indicates whether your software is set up correctly to report the
+            results of static analysis. The actual content of the report has no
+            impact on this check.
+        - id: slis-defined
+          name: SLIs are defined
+          description: >
+            Determines whether the service has at least one SLI defined.
+
+            Having SLIs defined allows developers to understand how a service is
+            behaving in production, to get a high level picture of the
+            quality/stability. Examples of SLIs are "error reply rate on a per
+            month basis", or "P99 response times over a week". This gives the
+            service owner a valuable input if there is reason to work on
+            stability.
+    - ordinal: 2
+      checks:
+        - id: tests-passed
+          name: Tests passed on CI
+          description: >
+            This check validates both that you have tests, and that none of them
+            are failing on CI.
+
+            Success or failure of tests is determined by using the JUnit test
+            results reported during Tingle builds of the default branch.
+        - id: coverage-healthy
+          name: Coverage is healthy
+          description: >
+            The check will fail if your coverage is <50%.
+
+            Even though code coverage can be a misleading metric, since
+            it doesn't actually guarantee any quality, the lack of
+            coverage does prove lack of tests. Therefore, based on the
+            numbers from the original program, the requirement is to
+            have branch coverage higher than 50% when running your tests.
+        - id: static-analysis-no-warnings
+          name: Static analysis has no warnings
+          description: >
+            Your component should not have any static code analysis warnings
+            reported. Either all warnings have been resolved, or a decision has been
+            taken to supress individual warnings.
+        - id: continuous-delivery-in-place
+          name: Continuous delivery is in place
+          description: >
+            The component should have a continuous delivery pipeline, which in
+            addition to continuous integration automatically prepares and tracks
+            a release to production. The desired outcome is that a new release
+            can be pushed to production at any time with up to a few clicks. By
+            eliminating nearly all manual tasks, developers become more
+            productive.
+        - id: has-lifecycle
+          name: Has component lifecycle defined
+          description: >
+            A defined lifecycle helps moderate the expectation of your users.
+            Define your lifecycle in the catalog-info.yaml file in your
+            repository.
+
+            See https://backstage.io/docs/features/software-catalog/descriptor-format#speclifecycle-required
+            for more information about how to define a component lifecycle.
+        - id: slos-defined
+          name: SLOs are defined
+          description: >
+            You must have at least one SLO defined.
+
+            SLOs are a reflection of your error budget for a given SLI. They are
+            intended to be used to alert you when error budgets are exceeded,
+            and to provide a guide to anyone using your website what kind of
+            reliability they can expect.
+          filter:
+            catalog:
+              spec.type: service
+    - ordinal: 3
+      checks:
+        - id: continuous-deployment-in-place
+          name: Continuous deployment is in place
+          description: >
+            The component should have a continuous deployment pipeline, which in
+            addition to continuous delivery also deploys the component with full
+            automation if every step in the pipeline succeeds. This places more
+            responsibility on the test suite, since there is no opportunity for
+            manual inspection between the default branch and production. There
+            must be a way to roll back a deployment to a previous version if the
+            deployment is broken for any reason.
+        - id: alerting-configured
+          name: Alerting is configured
+          description: >
+            Components must have an on-call rotation identifier configured in
+            component-info.yaml. This enables consumers of your component to
+            ping an on-call goalie from Backstage in the event of an incident.
+
+            This check will NOT look to see what level of coverage your rotation
+            provides; you may have a round-the-clock rotation, or a 10am-5pm
+            local time rotation, whatever is most appropriate for your
+            component.
+        - id: has-health-check
+          name: Has health check
+          description: >
+            Health checks are periodic checks that help you ensure that your
+            deployed instance is still healthy and ready to receive traffic.
+        - id: no-flaky-tests
+          name: No flaky tests
+          description: >
+            There have been no flaky tests detected for this website for the
+            last 7 days. Flakiness is determined using the JUnit test results
+            reported at during CI builds of the default branch.
+
+            A test is flaky if you get different test results for the same
+            commit. Living with flaky tests is often time consuming and
+            typically lowers confidence in the test suite.
+- id: golden-state-for-web
+  name: Golden State for Web
+  ownerEntityRef: group:default/toast-infra
+  description: >
+    Reduce decision making and maintenance by following Golden Technologies for
+    Web and the opinionated Web Golden Path standards.
+  filter:
+    catalog:
+      spec.type: 'website'
+  levels:
+    - ordinal: 0
+      name: Recommended
+      description: You should do this stuff!
+      checks:
+        - id: has-lifecycle
+          name: Has component lifecycle defined
+          description: >
+            A defined lifecycle helps moderate the expectation of your users.
+            Define your lifecycle in the catalog-info.yaml file in your
+            repository.
+
+            See https://backstage.io/docs/features/software-catalog/descriptor-format#speclifecycle-required
+            for more information about how to define a component lifecycle.
+        - id: has-component-type
+          name: Has component type defined
+          description: >
+            Components should use standard, well defined, component types. The
+            check verifies that the type of your component is in an allow list.
+
+            Using an appropriate component type helps Soundcheck determine which
+            checks are valid for your component. It also helps Backstage show
+            the correct functionality.
+
+            See the [component YAML
+            docs](https://backstage.io/docs/features/software-catalog/descriptor-format#spectype-required)
+            for more information about how to define a component type, and the
+            list of valid component types.
+        - id: has-owner
+          name: Has owner
+          description: >
+            Every component needs to have an owner.
+
+            See the [component YAML
+            docs](https://backstage.io/docs/features/software-catalog/descriptor-format#specowner-required)
+            for more information about how to define an owner.
+    - ordinal: 1
+      name: Best Practices
+      description: And this too!
+      checks:
+        - id: has-react
+          name: Has React
+          filter:
+            catalog:
+              spec.type: 'website'
+          description: >
+            React should be used for building web-based user interfaces. This
+            check verifies that React is present in the package.json.
+        - id: has-typescript
+          name: Has TypeScript
+          filter:
+            catalog:
+              spec.type: 'website'
+          description: >
+            TypeScript should be used for web applications and libraries. This
+            check verifies that at least one TypeScript file exists in your
+            project.
+
+            The usage of TypeScript means that you will have the ability to
+            refactor code safely. It also means that you receive well-integrated
+            IDE support for types.
+        - id: has-nextjs
+          name: Has NextJS
+          filter:
+            catalog:
+              spec.type: 'website'
+          description: >
+            [NextJS](nextjs.org) should be used as our framework of choice for
+            React websites. This check verifies that a dependency on NextJS is
+            present in package.json.
+
+            Next allows you to opt-in to server-side rendering and rendering
+            static websites. These techniques allow you to fine tune performance
+            and increase SEO. Using Next also offers you support from the Web
+            community at Spotify, with both knoweldge sharing and tooling
+            support.
+        - id: deployed-with-k8s
+          name: Deployed with Kubernetes
+          description: >
+            This check verifies that you have a deployment-info.yaml in the root
+            of your project with Kubernetes defined as one of your deployment
+            methods.
+
+            Kubernetes allows you to reduce costs, auto-scale your webiste and
+            increase security and reliability.
+    - ordinal: 2
+      checks:
+        - id: slis-defined
+          name: SLIs are defined
+          description: >
+            Determines whether the service has at least one SLI defined.
+
+            Having SLIs defined allows developers to understand how a service is
+            behaving in production, to get a high level picture of the
+            quality/stability. Examples of SLIs are "error reply rate on a per
+            month basis", or "P99 response times over a week". This gives the
+            service owner a valuable input if there is reason to work on
+            stability.
+        - id: slos-defined
+          name: SLOs are defined
+          description: >
+            You must have at least one SLO defined.
+
+            SLOs are a reflection of your error budget for a given SLI. They are
+            intended to be used to alert you when error budgets are exceeded,
+            and to provide a guide to anyone using your website what kind of
+            reliability they can expect.
+        - id: uses-lighthouse-audits
+          name: Has daily Lighthouse audits
+          description: >
+            Lighthouse audits should be run for your website on a daily
+            schedule. Lighthouse audits provide your website's pages with scores
+            on performance, accessibility, best practices, SEO and more. Enable
+            scheduled Lighthouse audits by providing a
+            `lighthouse.com/website_url` annotaction in your catalog-info
+            metadata.
+        - id: uses-testing-library
+          name: Has @testing-library/react
+          description: >
+            @testing-library/react must be present in package.json.
+            @testing-library/react is a collection of simple and complete React
+            DOM testing utilities that encourage good testing practices.
