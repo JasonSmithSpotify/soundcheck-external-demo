@@ -25,6 +25,9 @@
   filter:
     catalog:
       spec.lifecycle: 'production'
+  schedule:
+    frequency:
+      minutes: 5
   documentationURL: https://www.backstage.io
   levels:
     - ordinal: 1
