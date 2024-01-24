@@ -24,10 +24,7 @@
     by measuring the use of testing best practices.
   filter:
     catalog:
-      spec.lifecycle: 'production'
-  schedule:
-    frequency:
-      minutes: 5
+      spec.lifecycle: 'experimental'
   documentationURL: https://www.backstage.io
   levels:
     - ordinal: 1
