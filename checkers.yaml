@@ -19,7 +19,7 @@
     factRef: catalog:default/entity_descriptor
     path: $.spec.lifecycle
     operator: matches
-    value: production | experimental | test
+    value: production | experimental
   passedMessage: Component has a valid lifecycle.
   failedMessage: Component does not have a valid lifecycle.
 
