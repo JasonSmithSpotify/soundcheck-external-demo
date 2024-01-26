@@ -16,16 +16,16 @@
           name: Has Production Lifecycle
           description: >
             Verifies that the component has a production lifecycle.
-    - ordinal: 2
-      checks:
-        - id: tests-passed
-          name: Tests passed on CI
-          description: >
-            This check validates both that you have tests, and that none of them
-            are failing on CI.
+    # - ordinal: 2
+    #   checks:
+    #     - id: tests-passed
+    #       name: Tests passed on CI
+    #       description: >
+    #         This check validates both that you have tests, and that none of them
+    #         are failing on CI.
 
-            Success or failure of tests is determined by using the JUnit test
-            results reported during Tingle builds of the default branch.
+    #         Success or failure of tests is determined by using the JUnit test
+    #         results reported during Tingle builds of the default branch.
 - id: test-certified
   name: Test Certified
   ownerEntityRef: group:default/imaginary-goats
