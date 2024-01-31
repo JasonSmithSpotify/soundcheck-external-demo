@@ -43,7 +43,7 @@
               name: Has Production Lifecycle
               description: >
                 Verifies that the component has a production lifecycle.
-        - ordinal: 1
+        - ordinal: 2
           checks:
             - id: code-coverage-check
               name: Has Sufficient Code Coverage
