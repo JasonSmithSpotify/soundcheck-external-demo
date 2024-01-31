@@ -1,6 +1,6 @@
 ---
 - id: micro-certified-three
-  name: Micro Certified Two
+  name: Micro Certified Three
   ownerEntityRef: group:default/toast-infra
   description: |
     Improve **quality** and **reliability** of your software component
