@@ -15,7 +15,7 @@
           spec.lifecycle: 'production'
       documentationURL: https://www.backstage.io
       levels:
-        - ordinal: 1
+        - ordinal: 0
           checks:
             - id: has-production-lifecycle
               name: Has Production Lifecycle
