@@ -1,15 +1,15 @@
 ---
-# - id: has-production-lifecycle
-#   ownerEntityRef: group:default/toast-infra
-#   name: Has Production Lifecycle
-#   description: Ensures the component has a production lifecycle.
-#   rule:
-#     factRef: catalog:default/entity_descriptor
-#     path: $.spec.lifecycle
-#     operator: equal
-#     value: production
-#   passedMessage: Component has a production lifecycle.
-#   failedMessage: Component does not have a production lifecycle.
+- id: has-production-lifecycle
+  ownerEntityRef: group:default/toast-infra
+  name: Has Production Lifecycle
+  description: Ensures the component has a production lifecycle.
+  rule:
+    factRef: catalog:default/entity_descriptor
+    path: $.spec.lifecycle
+    operator: equal
+    value: production
+  passedMessage: Component has a production lifecycle.
+  failedMessage: Component does not have a production lifecycle.
 
 - id: has-lifecycle
   ownerEntityRef: group:default/toast-infra
