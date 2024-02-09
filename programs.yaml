@@ -26,6 +26,11 @@
 
             Success or failure of tests is determined by using the JUnit test
             results reported during Tingle builds of the default branch.
+        - id: tests-run
+          name: Tests run on CI
+          description: >
+            Indicates whether your system is set up correctly to run tests and
+            report the results. You must have at least one test.
 - id: micro-certified
   name: Micro Certified
   ownerEntityRef: group:default/toast-infra
