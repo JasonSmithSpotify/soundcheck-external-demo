@@ -1,5 +1,5 @@
 ---
-- id: micro-certified-four
+- busted_id: micro-certified-four
   name: Micro Certified Four
   ownerEntityRef: group:default/toast-infra
   description: |
