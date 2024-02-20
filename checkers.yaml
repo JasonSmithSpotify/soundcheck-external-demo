@@ -1,7 +1,7 @@
 ---
 - id: code-coverage-check
   ownerEntityRef: group:default/toast-infra
-  name: Code Coverage Check
+  name: Code Coverage Checks
   description: Ensure code coverage meets the minimum threshold.
   rule:
     all:
