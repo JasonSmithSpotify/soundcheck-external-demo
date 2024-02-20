@@ -1,0 +1,23 @@
+---
+- id: soundcheck-playlist-demo
+  ownerEntityRef: group:default/toast-infra
+  name: Soundcheck Playlist Demo
+  description: Soundcheck Playlist Demo
+  tracks:
+    - id: micro-certified-playlist-track-one
+      name: Micro Certified Playlist Track One
+      ownerEntityRef: group:default/toast-infra
+      description: |
+        Improve **quality** and **reliability** of your software component
+        by measuring the use of testing best practices, but just a little.
+      filter:
+        catalog:
+          spec.lifecycle: 'production'
+      documentationURL: https://www.backstage.io
+      levels:
+        - ordinal: 0
+          checks:
+            - id: has-production-lifecycle
+              name: Has Production Lifecycle
+              description: >
+                Verifies that the component has a production lifecycle.
