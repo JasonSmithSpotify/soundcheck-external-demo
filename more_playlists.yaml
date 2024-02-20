@@ -3,7 +3,7 @@
   ownerEntityRef: group:default/toast-infra
   name: Soundcheck Playlist Demo - Test
   description: Soundcheck Playlist Demo
-  tracks:
+  track_s:
     - id: micro-certified-playlist-track-one
       name: Micro Certified Playlist Track One
       ownerEntityRef: group:default/toast-infra
