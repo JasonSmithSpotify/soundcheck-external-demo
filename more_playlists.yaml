@@ -5,7 +5,7 @@
   description: Soundcheck Playlist Demo
   track_s:
     - id: micro-certified-playlist-track-one
-      name: Micro Certified Playlist Track One
+      name: Micro Certified Playlist Demo - Track One
       ownerEntityRef: group:default/toast-infra
       description: |
         Improve **quality** and **reliability** of your software component
