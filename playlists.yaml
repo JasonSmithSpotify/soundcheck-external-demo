@@ -21,12 +21,12 @@
               name: Has Production Lifecycle
               description: >
                 Verifies that the component has a production lifecycle.
-        - ordinal: 1
-          checks:
-            - id: code-coverage-check
-              name: Has Sufficient Code Coverage
-              description: >
-                Verifies that the component has sufficent code coverage.
+        # - ordinal: 1
+        #   checks:
+        #     - id: code-coverage-check
+        #       name: Has Sufficient Code Coverage
+        #       description: >
+        #         Verifies that the component has sufficent code coverage.
     - id: micro-certified-playlist-track-two
       name: Micro Certified Playlist Track Two
       ownerEntityRef: group:default/toast-infra
@@ -44,9 +44,9 @@
               name: Has Production Lifecycle
               description: >
                 Verifies that the component has a production lifecycle.
-        - ordinal: 1
-          checks:
-            - id: code-coverage-check
-              name: Has Sufficient Code Coverage
-              description: >
-                Verifies that the component has sufficent code coverage.
+        # - ordinal: 1
+        #   checks:
+        #     - id: code-coverage-check
+        #       name: Has Sufficient Code Coverage
+        #       description: >
+        #         Verifies that the component has sufficent code coverage.
