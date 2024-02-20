@@ -5,7 +5,7 @@
   description: Soundcheck Playlist Demo Two
   tracks:
     - id: micro-certified-playlist-track-three
-      name: Micro Certified Playlist Track Three
+      name: Micro Certified Playlist Demo Two - Track Three
       ownerEntityRef: group:default/toast-infra
       description: |
         Improve **quality** and **reliability** of your software component
@@ -27,8 +27,8 @@
               name: Has Sufficient Code Coverage
               description: >
                 Verifies that the component has sufficent code coverage.
-    - id: micro-certified-playlist-track-two
-      name: Micro Certified Playlist Track Two
+    - id: demo-two-track-two
+      name: Micro Certified Playlist Demo Two - Track Two
       ownerEntityRef: group:default/toast-infra
       description: |
         Improve **quality** and **reliability** of your software component
