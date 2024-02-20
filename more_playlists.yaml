@@ -1,7 +1,7 @@
 ---
-- id: soundcheck-playlist-demo
+- id: soundcheck-playlist-demo-id
   ownerEntityRef: group:default/toast-infra
-  name: Soundcheck Playlist Demo
+  name: Soundcheck Playlist Demo - Test
   description: Soundcheck Playlist Demo
   tracks:
     - id: micro-certified-playlist-track-one
