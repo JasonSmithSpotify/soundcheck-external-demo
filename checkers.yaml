@@ -6,7 +6,7 @@
   rule:
     factRef: catalog:default/entity_descriptor
     path: $.spec.lifecycle
-    operator: equal
+    operator: matches
     value: production
   passedMessage: Component has a production lifecycle.
   failedMessage: Component does not have a production lifecycle.
