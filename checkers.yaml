@@ -48,9 +48,9 @@
   passedMessage: All unit tests are passing.
   failedMessage: Some unit tests are failing.
 
-- busted_id: dependency-check
+- id: dependency-check
   ownerEntityRef: group:default/imaginary-goats
-  name: Dependency Check
+  name: Dependency Check - No Vulnerabilities
   description: Ensure there are no known security vulnerabilities in dependencies.
   rule:
     factRef: source:scope/vulnerabilitiesCount
