@@ -13,7 +13,7 @@
 
 - id: has-valid-lifecycle
   ownerEntityRef: group:default/toast-infra
-  name: Has-Valid-Lifecycle
+  name: Has Valid Lifecycle
   description: Ensures the component has a valid lifecycle.
   rule:
     factRef: catalog:default/entity_descriptor
