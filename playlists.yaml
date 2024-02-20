@@ -1,6 +1,6 @@
 ---
 - id: soundcheck-playlist-demo-two
-  ownerEntityRef: group:default/toast-infra
+  ownerEntityRef_s: group:default/toast-infra
   name: Soundcheck Playlist Demo Two
   description: Soundcheck Playlist Demo Two
   tracks:
