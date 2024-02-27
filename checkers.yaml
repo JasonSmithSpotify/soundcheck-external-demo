@@ -7,8 +7,8 @@
     all:
       - factRef: scm:default/readme
         path: $.contents
-        operator: matches
-        value: ^(?!\# @spotify\/plugin-data-experience-common\s*Welcome to the common package for the data-experience plugin!\s*_This plugin was created through the Backstage CLI_)$
+        operator: equals
+        value: false
   passedMessage: Readme is more than boilerplate, good job!
   failedMessage: Readme is just boilerplate, go add some details!
   schedule:
