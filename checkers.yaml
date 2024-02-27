@@ -7,7 +7,7 @@
     all:
       - factRef: scm:default/readme
         path: $.contents
-        operator: equals
+        operator: equal
         value: false
   passedMessage: Readme is more than boilerplate, good job!
   failedMessage: Readme is just boilerplate, go add some details!
