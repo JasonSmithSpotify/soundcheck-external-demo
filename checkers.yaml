@@ -5,7 +5,7 @@
   description: Ensures that the readme contains more than boilerplate.
   rule:
     all:
-      - factRef: source:scope/readme
+      - factRef: scm:default/readme
         path: $.contents
         operator: matches
         value: ^(?!\# @spotify\/plugin-data-experience-common\s*Welcome to the common package for the data-experience plugin!\s*_This plugin was created through the Backstage CLI_)$
