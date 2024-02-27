@@ -35,7 +35,7 @@
         by measuring the use of testing best practices, but not by much..
       filter:
         catalog:
-          spec.lifecycle: 'production'
+          spec.lifecycle: 'experimental'
       documentationURL: https://www.backstage.io
       levels:
         - ordinal: 0
