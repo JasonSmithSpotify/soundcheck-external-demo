@@ -15,7 +15,7 @@
     frequency:
       minutes: 1
   filter:
-    spec.type: component
+    kind: component
   
 - id: code-coverage-check
   ownerEntityRef: group:default/toast-infra
