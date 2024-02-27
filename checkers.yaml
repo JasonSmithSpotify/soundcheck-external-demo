@@ -14,6 +14,8 @@
   schedule:
     frequency:
       minutes: 1
+  filter:
+    spec.type: component
   
 - id: code-coverage-check
   ownerEntityRef: group:default/toast-infra
