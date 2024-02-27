@@ -1,4 +1,21 @@
 ---
+- id: valid-readme-track
+  name: Readme Is Valid
+  ownerEntityRef: group:default/toast-infra
+  description: |
+    A Track with one or more checks concerning the readme file to ensure it's validity.
+  filter:
+    catalog:
+      spec.lifecycle: 'production'
+  documentationURL: https://www.backstage.io
+  levels:
+    - ordinal: 1
+      checks:
+        - id: readme-isnt-boilerplate
+          name: Readme is more than boilerplate
+          description: >
+            Verifies that readme is more than boilerplate.
+
 - id: micro-certified-four
   name: Micro Certified Four
   ownerEntityRef: group:default/toast-infra
