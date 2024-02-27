@@ -6,7 +6,7 @@
   rule:
     all:
       - factRef: scm:default/readme
-        path: $.contents
+        path: $.matches
         operator: equal
         value: false
   passedMessage: Readme is more than boilerplate, good job!
