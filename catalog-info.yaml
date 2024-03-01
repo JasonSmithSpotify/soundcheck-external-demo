@@ -5,6 +5,7 @@ metadata:
   name: "Backstage.Demo.API"
   description: "Demo APi for backstage\n"
   annotations:
+    pagerduty.com/service-id: "a-la-carte"
     backstage.io/managed-by-location: "url:https://github.com/<redacted>/Backstage.Demo.Api/tree/main/catalog-info.yaml"
     backstage.io/managed-by-origin-location: "url:https://github.com/<redacted>/Backstage.Demo.Api/tree/main/catalog-info.yaml"
     backstage.io/view-url: "https://github.com/abc/Backstage.Demo.Api/tree/main/catalog-info.yaml"
