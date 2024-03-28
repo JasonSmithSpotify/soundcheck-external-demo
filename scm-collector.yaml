@@ -1,40 +1,41 @@
-frequency:
-  cron: '0 0 * * *'
-collects:
-  # Extracts if files exist at the given paths.
-  - factName: files.eclipse
-    type: exists
-  data:
-      - name: classpath
-        path: .classpath
-      - name: project
-        path: .project
-
-  # Extracts two data elements, ubi and date, from the file at the specified path
-  # using the given regex. Each capture group corresponds to the data elements, in order.
-  - factName: github.docker
-    type: regex
-    path: /pom.xml
-    regex: gcr.io/spotify-base-images/(.*):(.*)@.*
+scm:
+  frequency:
+    cron: '0 0 * * *'
+  collects:
+    # Extracts if files exist at the given paths.
+    - factName: files.eclipse
+      type: exists
     data:
-      - name: ubi
-        type: string
-      - name: date
-        type: string
-
-  # Extracts json data from the file at the given path.
-  # Here:
-  # metadata.tags will be extracted into an array named 'tags' of type String, and
-  # metadata.labels.service_type will be extracted into a variable called service_type of type string
-  - factName: entity.metadata
-    type: json
-    path: /system-info.yaml
-    data:
-      - name: tags
-        jsonPath: metadata.tags
-        type: array
-        items:
+        - name: classpath
+          path: .classpath
+        - name: project
+          path: .project
+  
+    # Extracts two data elements, ubi and date, from the file at the specified path
+    # using the given regex. Each capture group corresponds to the data elements, in order.
+    - factName: github.docker
+      type: regex
+      path: /pom.xml
+      regex: gcr.io/spotify-base-images/(.*):(.*)@.*
+      data:
+        - name: ubi
           type: string
-      - name: service_type
-        jsonPath: metadata.labels.service_type
-      type: string
+        - name: date
+          type: string
+  
+    # Extracts json data from the file at the given path.
+    # Here:
+    # metadata.tags will be extracted into an array named 'tags' of type String, and
+    # metadata.labels.service_type will be extracted into a variable called service_type of type string
+    - factName: entity.metadata
+      type: json
+      path: /system-info.yaml
+      data:
+        - name: tags
+          jsonPath: metadata.tags
+          type: array
+          items:
+            type: string
+        - name: service_type
+          jsonPath: metadata.labels.service_type
+        type: string
