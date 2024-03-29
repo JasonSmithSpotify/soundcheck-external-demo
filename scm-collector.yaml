@@ -38,4 +38,4 @@ scm:
             type: string
         - name: service_type
           jsonPath: metadata.labels.service_type
-        type: string
+          type: string
