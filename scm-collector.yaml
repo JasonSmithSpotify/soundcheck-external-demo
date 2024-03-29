@@ -5,11 +5,11 @@ scm:
     # Extracts if files exist at the given paths.
     - factName: files.eclipse
       type: exists
-    data:
-        - name: classpath
-          path: .classpath
-        - name: project
-          path: .project
+      data:
+          - name: classpath
+            path: .classpath
+          - name: project
+            path: .project
   
     # Extracts two data elements, ubi and date, from the file at the specified path
     # using the given regex. Each capture group corresponds to the data elements, in order.
