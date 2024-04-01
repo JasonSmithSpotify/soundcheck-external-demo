@@ -1,5 +1,5 @@
 ---
-- id: soundcheck-playlist-demo-id
+- id: soundcheck-playlist-demo
   ownerEntityRef: group:default/toast-infra
   name: Soundcheck Playlist Demo
   description: Soundcheck Playlist Demo
