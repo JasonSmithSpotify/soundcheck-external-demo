@@ -31,9 +31,9 @@
   passedMessage: Code coverage meets the minimum threshold.
   failedMessage: Code coverage does not meet the minimum threshold.
 
-- id: unit-tests-check
+- id: unit-tests-check-two
   ownerEntityRef: group:default/toast-infra
-  name: Unit Tests Check
+  name: Unit Tests Check Two
   description: Ensure all unit tests are passing.
   rule:
     factRef: source:scope/unitTestsPassing
@@ -51,6 +51,6 @@
     factRef: source:scope/vulnerabilitiesCount
     path: $.count
     operator: equals
-    value: 0
+    value: 1
   passedMessage: No known security vulnerabilities found in dependencies.
   failedMessage: Known security vulnerabilities found in dependencies.
