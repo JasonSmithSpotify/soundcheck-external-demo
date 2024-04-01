@@ -11,14 +11,14 @@
   passedMessage: Component has a production lifecycle.
   failedMessage: Component does not have a production lifecycle.
 
-# - id: has-valid-lifecycles
-#   ownerEntityRef: group:default/toast-infra
-#   name: Has Valid Lifecycles
-#   description: Ensures the component has a valid lifecycle.
-#   rule:
-#     factRef: catalog:default/entity_descriptor
-#     path: $.spec.lifecycle
-#     operator: matches
-#     value: production | experimental
-#   passedMessage: Component has a valid lifecycle.
-#   failedMessage: Component does not have a valid lifecycle.
+- id: has-valid-lifecycles
+  ownerEntityRef: group:default/toast-infra
+  name: Has Valid Lifecycles
+  description: Ensures the component has a valid lifecycle.
+  rule:
+    factRef: catalog:default/entity_descriptor
+    path: $.spec.lifecycle
+    operator: matches
+    value: production | experimental
+  passedMessage: Component has a valid lifecycle.
+  failedMessage: Component does not have a valid lifecycle.
