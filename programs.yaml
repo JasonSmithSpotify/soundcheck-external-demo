@@ -1,6 +1,6 @@
 ---
-- id: valid-readme-track
-  name: Readme Is Valid
+- id: valid-readme-track-two
+  name: Readme Is Valid Two
   ownerEntityRef: group:default/toast-infra
   description: |
     A Track with one or more checks concerning the readme file to ensure it's validity.
