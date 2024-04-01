@@ -5,7 +5,7 @@
   description: Soundcheck Playlist Demo
   tracks:
     - id: playlist-demo-track
-      name: Playlist Demo Track
+      name: Playlist Demo Track One
       ownerEntityRef: group:default/toast-infra
       description: |
         Improve **quality** and **reliability** of your software component
