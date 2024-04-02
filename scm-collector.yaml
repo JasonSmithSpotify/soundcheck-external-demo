@@ -26,24 +26,7 @@ collects:
   # Here:
   # metadata.tags will be extracted into an array named 'tags' of type String, and
   # metadata.labels.service_type will be extracted into a variable called service_type of type string
-  - factName: entity.metadata
-    type: json
-    path: /system-info.yaml
-    data:
-      - name: tags
-        jsonPath: metadata.tags
-        type: array
-        items:
-          type: string
-      - name: service_type_two
-        jsonPath: metadata.labels.service_type
-        type: string
-
-  # Extracts json data from the file at the given path.
-  # Here:
-  # metadata.tags will be extracted into an array named 'tags' of type String, and
-  # metadata.labels.service_type will be extracted into a variable called service_type of type string
-  - factName: entity.metadata.url.two
+  - factName: entity.metadata.url
     type: json
     path: /system-info.yaml
     data:
@@ -56,16 +39,16 @@ collects:
         jsonPath: metadata.labels.service_type
         type: string
 
-  # Extracts json data from the file at the given path.
-  # Here:
-  # metadata.tags will be extracted into an array named 'tags' of type String, and
-  # metadata.labels.service_type will be extracted into a variable called service_type of type string
-  - factName: check-ids-fact
-    type: json
-    path: /checkers.yaml
-    data:
-      - name: ids
-        jsonPath: id
-        type: array
-        items:
-          type: string
+  # # Extracts json data from the file at the given path.
+  # # Here:
+  # # metadata.tags will be extracted into an array named 'tags' of type String, and
+  # # metadata.labels.service_type will be extracted into a variable called service_type of type string
+  # - factName: check-ids-fact
+  #   type: json
+  #   path: /checkers.yaml
+  #   data:
+  #     - name: ids
+  #       jsonPath: id
+  #       type: array
+  #       items:
+  #         type: string
