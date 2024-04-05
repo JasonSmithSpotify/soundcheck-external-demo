@@ -2,13 +2,13 @@ frequency:
   cron: '0 0 * * *'
 collects:
   # Extracts if files exist at the given paths.
-  - factName: files.eclipse.url
+  - factName: files.eclipse
     type: exists
     data:
-        - name: classpath
-          path: .classpath
-        - name: project
-          path: .project
+        - name: has_license
+          path: LICENSE
+        - name: has_readme
+          path: README.md
 
   # Extracts two data elements, ubi and date, from the file at the specified path
   # using the given regex. Each capture group corresponds to the data elements, in order.
