@@ -2,7 +2,7 @@ frequency:
   cron: '0 0 * * *'
 collects:
   # Extracts if files exist at the given paths.
-  - factName: files.eclipse.url
+  - factName: files.eclipse.url.test.test
     type: exists
     data:
         - name: has_license
