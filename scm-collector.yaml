@@ -1,7 +1,7 @@
 frequency:
   cron: '0 0 * * *'
 filter:
-    kind: Component
+  kind: Component
 collects:
   # Extracts if files exist at the given paths.
   - factName: has_license
