@@ -1,7 +1,6 @@
 frequency:
   cron: '0 0 * * *'
 filter:
-  catalog:
     kind: Component
 collects:
   # Extracts if files exist at the given paths.
