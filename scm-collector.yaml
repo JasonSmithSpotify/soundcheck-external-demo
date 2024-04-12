@@ -4,16 +4,14 @@ filter:
   kind: Component
 collects:
   # Extracts if files exist at the given paths.
-  - factName: has_license
+  - factName: has_license.url
     type: exists
     data:
-        - name: has_license
-          path: LICENSE
         - name: exists
-          path: README.md
+          path: LICENSE
 
   # Extracts if files exist at the given paths.
-  - factName: has_readme
+  - factName: has_readme.url
     type: exists
     data:
         - name: exists
@@ -35,18 +33,18 @@ collects:
   # Here:
   # metadata.tags will be extracted into an array named 'tags' of type String, and
   # metadata.labels.service_type will be extracted into a variable called service_type of type string
-  - factName: entity.metadata.url
-    type: json
-    path: /system-info.yaml
-    data:
-      - name: tags
-        jsonPath: metadata.tags
-        type: array
-        items:
-          type: string
-      - name: service_type
-        jsonPath: metadata.labels.service_type
-        type: string
+  # - factName: entity.metadata.url
+  #   type: json
+  #   path: /system-info.yaml
+  #   data:
+  #     - name: tags
+  #       jsonPath: metadata.tags
+  #       type: array
+  #       items:
+  #         type: string
+  #     - name: service_type
+  #       jsonPath: metadata.labels.service_type
+  #       type: string
 
   # # Extracts json data from the file at the given path.
   # # Here:
