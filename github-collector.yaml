@@ -1,0 +1,18 @@
+# Sample Github fact collection configuration
+---
+# At the top of every hour
+frequency:
+  cron: '*/30 * * * *'
+filter:
+  kind: Component
+  spec.lifecycle: production
+initialDelay:
+  minutes: 10
+collects:
+  # Extracts information about configured branch protections for a given branch in Github repository
+  - factName: branch_protections
+    type: BranchProtections
+
+  # Extracts information about a Github repository
+  - factName: repo_details
+    type: RepositoryDetails
