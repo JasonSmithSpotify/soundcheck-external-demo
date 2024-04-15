@@ -1,11 +1,10 @@
 frequency:
   cron: '*/30 * * * *'
+initialDelay:
+  minutes: 10
 filter:
   kind: Component
   spec.lifecycle: production
-cache:
-  duration:
-    minutes: 30
 collects:
   # Extracts if files exist at the given paths.
   - factName: required_files_exist
