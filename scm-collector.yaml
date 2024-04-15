@@ -1,5 +1,5 @@
 frequency:
-  cron: '*/15 * * * *'
+  cron: '*/30 * * * *'
 filter:
   kind: Component
   spec.lifecycle: production
@@ -55,6 +55,6 @@ collects:
   #   data:
   #     - name: ids
   #       jsonPath: id
-        type: array
-        items:
-          type: string
+        # type: array
+        # items:
+        #   type: string
