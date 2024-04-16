@@ -7,7 +7,7 @@ filter:
   spec.lifecycle: production
 collects:
   # Extracts if files exist at the given paths.
-  - factName: required_files_exist.url
+  - factName: required_files_exist
     type: exists
     data:
         - name: license
@@ -16,16 +16,11 @@ collects:
           path: CODE_OF_CONDUCT.md
         - name: contributing
           path: CONTRIBUTING.md
-
-    # Extracts if files exist at the given paths.
-  - factName: required_files_exist_two
-    type: exists
-    data:
         - name: readme
           path: README.md
         - name: api_report
           path: api-report.md
-          
+
   # Checks that the api-report contains the correct 'do not edit' disclaimer.
   - factName: api-report-has-no-edit-warning
     type: regex
