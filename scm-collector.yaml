@@ -7,7 +7,7 @@ filter:
   spec.lifecycle: production
 collects:
   # Extracts if files exist at the given paths.
-  - factName: required_files_exist
+  - factName: required_files_exist.url
     type: exists
     data:
         - name: license
