@@ -5,6 +5,7 @@ initialDelay:
 filter:
   kind: Component
   spec.lifecycle: production
+  metadata.tags: ["redacted1"]
 collects:
   # Extracts if files exist at the given paths.
   - factName: required_files_exist
