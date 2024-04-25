@@ -1,3 +1,2 @@
 Should_support: '^\s*-\sproject:\s*group-name/project-name'
 should_be_valid: - project: group-name/project-name
-- project: group-name/project-name
