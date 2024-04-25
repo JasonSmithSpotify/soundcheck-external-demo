@@ -11,7 +11,7 @@ collects:
       # used to refer to the fact in other
       # configuration files.
     type: regex # This identifies the type of fact to collect.
-    regex: '^\s*-\sproject:\s*group-name/project-name'
+    regex: '\s*-\sproject:\s*group-name/project-name'
     path: gitlab-ci.yml
   
   # Extracts if files exist at the given paths.
