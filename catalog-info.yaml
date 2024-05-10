@@ -6,6 +6,7 @@ metadata:
   description: "Demo APi for backstage\n"
   annotations:
     veriff.com/has-check-executor-kit: "true"
+    veriff.com/has-check-executor-kit-two: true
     pagerduty.com/service-id: "P9TSZZ5"
     backstage.io/managed-by-location: "url:https://github.com/<redacted>/Backstage.Demo.Api/tree/main/catalog-info.yaml"
     backstage.io/managed-by-origin-location: "url:https://github.com/<redacted>/Backstage.Demo.Api/tree/main/catalog-info.yaml"
