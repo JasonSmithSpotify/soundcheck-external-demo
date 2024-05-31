@@ -5,7 +5,6 @@ initialDelay:
 filter:
   kind: Component
   spec.lifecycle: production
-  metadata.annotations.pagerduty.com/service-id: "P9TSZZ5"
 collects:
   - factName:
       include_present # This gives this fact an identifier which is
