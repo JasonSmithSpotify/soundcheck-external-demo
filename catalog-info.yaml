@@ -37,5 +37,5 @@ metadata:
   etag: "023001a7c5f3912d682e8882e10c20f62f6a2fd9"
 spec:
   type: "service"
-  owner: "group:default/someGroup"
+  owner: "group:default/team-a"
   lifecycle: "production"
