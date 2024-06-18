@@ -1,7 +1,7 @@
 frequency:
   cron: '*/15 * * * *'
 initialDelay:
-  seconds: 30
+  minutes: 5
 filter:
   kind: Component
   spec.lifecycle: production
