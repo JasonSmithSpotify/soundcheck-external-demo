@@ -3,7 +3,8 @@
 # At the top of every hour
 frequency:
   cron: '*/30 * * * *'
-
+initialDelay:
+  minutes: 5
 filter:
   kind: Component
   spec.lifecycle: production
