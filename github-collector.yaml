@@ -6,8 +6,6 @@ frequency:
 filter:
   kind: Component
   spec.lifecycle: production
-initialDelay:
-  minutes: 10
 collects:
   # Extracts information about configured branch protections for a given branch in Github repository
   - factName: branch_protections
