@@ -5,8 +5,8 @@ metadata:
   name: "Backstage.Demo.API"
   description: "Demo APi for backstage\n"
   labels:
-    java
-    test-label
+    - java
+    - test-label
   annotations:
     veriff.com/has-check-executor-kit: "true"
     pagerduty.com/service-id: "P9TSZZ5"
