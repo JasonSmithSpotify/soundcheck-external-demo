@@ -4,6 +4,8 @@ metadata:
   namespace: "default"
   name: "Backstage.Demo.API"
   description: "Demo APi for backstage\n"
+  labels:
+    - language: "ruby"
   annotations:
     veriff.com/has-check-executor-kit: "true"
     pagerduty.com/service-id: "P9TSZZ5"
