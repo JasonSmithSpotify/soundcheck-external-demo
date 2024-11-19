@@ -6,7 +6,7 @@ metadata:
   description: "Demo APi for backstage\n"
   annotations:
     sonarqube.org/organization-key: kklymkovska
-    sonarqube.org/project-key: kklymkovska_soundcheck-demo/sonarqube_collector
+    sonarqube.org/project-key: sonarqube_collector/kklymkovska_soundcheck-demo
     veriff.com/has-check-executor-kit: "true"
     pagerduty.com/service-id: "P9TSZZ5"
     backstage.io/managed-by-location: "url:https://github.com/<redacted>/Backstage.Demo.Api/tree/main/catalog-info.yaml"
