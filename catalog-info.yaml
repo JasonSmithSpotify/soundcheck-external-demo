@@ -5,7 +5,7 @@ metadata:
   name: "Backstage.Demo.API"
   description: "Demo APi for backstage\n"
   annotations:
-    datadoghq.com/service-id: test-service-id
+    datadoghq.com/service-id: test-service-id-bad
     sonarqube.org/organization-key: kklymkovska
     sonarqube.org/project-key: kklymkovska_soundcheck-demo
     veriff.com/has-check-executor-kit: "true"
