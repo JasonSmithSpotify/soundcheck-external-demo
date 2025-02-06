@@ -1,5 +1,5 @@
 frequency:
-  cron: '*/15 * * * *'
+  cron: '*/20 * * * *'
 initialDelay:
   minutes: 5
 filter:
