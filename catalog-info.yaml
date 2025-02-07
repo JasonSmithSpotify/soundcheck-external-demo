@@ -1,27 +1,22 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: kws-frontend
-  description: Frontend for KWS, our Internal Developer Portal
+  name: spirit-animal-skill
+  description: Skill that sends a spirit animal
   annotations:
     jira.com/project-key: DX
   tags:
-    - react
-    - typescript
-    - kws
-    - frontend
-    - backstage
+    - ai-portal
+    - alfred
+    - ai
+    - python
 spec:
-  type: website
+  type: service
   lifecycle: production
   owner: okta/unigpki23ue
-  system: kws
+  system: alfred
   dependsOn:
-    - component:ondemands-api
-    - resource:kws-s3
-    - api:ondemands-api
-  consumesApis:
-    - ondemands-api
+    - component:iris-messenger
 
 # metadata:
 #   namespace: "default"
