@@ -28,6 +28,7 @@ metadata:
     servicenow/modelId: "Domain Services"
     octopus.com/project-id: "<redacted>"
     octopus.com/space-id: "<redacted>"
+    spotify.net/slack-channel: "#this_is_the_channel"
   links:
     - url: "https://fake.atlassian.net/wiki/spaces/BAT/overview"
       title: "Fake"
