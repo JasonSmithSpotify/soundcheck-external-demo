@@ -27,9 +27,6 @@ metadata:
       title: Feature/Issue Tracker
  uid: e4f9eb15-f8f3-4b0c-acfb-283c5b3c3a0c
  etag: 2e308cad567e736d2229af2c8dce17e2faebe881
-relations:
-  - type: ownedBy
-    targetRef: group:default/team-platform-foundations
 spec:
  type: website
  owner: team-platform-foundations
