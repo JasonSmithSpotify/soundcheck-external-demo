@@ -1,22 +1,58 @@
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
-  name: spirit-animal-skill
-  description: Skill that sends a spirit animal
-  annotations:
-    jira.com/project-key: DX
-  tags:
-    - ai-portal
-    - alfred
-    - ai
-    - python
+ namespace: default
+ annotations:
+    backstage.io/managed-by-location: url:https://github.com/rvohealth/backstage/tree/main/.backstage/healthy-engineering.yaml
+    backstage.io/managed-by-origin-location: url:https://github.com/rvohealth/backstage/blob/main/.backstage/healthy-engineering.yaml
+    backstage.io/view-url: https://github.com/rvohealth/backstage/tree/main/.backstage/healthy-engineering.yaml
+    backstage.io/edit-url: https://github.com/rvohealth/backstage/edit/main/.backstage/healthy-engineering.yaml
+    backstage.io/source-location: url:https://github.com/rvohealth/backstage/tree/main/.backstage/
+    github.com/project-slug: rvohealth/backstage
+    backstage.io/techdocs-ref: dir:../
+    backstage.io/techdocs-builder-type: external
+    pagerduty.com/service-id: P4E53XJ
+ name: backstage
+ description: Backstage installation for RV Health
+ tags:
+    - platform
+    - typescript
+    - react
+ links:
+    - url: https://backstage.rvohealth.dev/
+      title: Developer Portal
+    - url: https://backstage.rvohealth.dev/docs/default/component/backstage
+      title: Documentation
+    - url: https://github.com/rvohealth/backstage/issues/new/choose
+      title: Feature/Issue Tracker
+ uid: e4f9eb15-f8f3-4b0c-acfb-283c5b3c3a0c
+ etag: 2e308cad567e736d2229af2c8dce17e2faebe881
+relations:
+  - type: ownedBy
+    targetRef: group:default/team-platform-foundations
 spec:
-  type: service
-  lifecycle: production
-  owner: okta/unigpki23ue
-  system: alfred
-  dependsOn:
-    - component:iris-messenger
+ type: website
+ owner: team-platform-foundations
+ lifecycle: production
+# apiVersion: backstage.io/v1alpha1
+# kind: Component
+# metadata:
+#   name: spirit-animal-skill
+#   description: Skill that sends a spirit animal
+#   annotations:
+#     jira.com/project-key: DX
+#   tags:
+#     - ai-portal
+#     - alfred
+#     - ai
+#     - python
+# spec:
+#   type: service
+#   lifecycle: production
+#   owner: okta/unigpki23ue
+#   system: alfred
+#   dependsOn:
+#     - component:iris-messenger
 
 # metadata:
 #   namespace: "default"
