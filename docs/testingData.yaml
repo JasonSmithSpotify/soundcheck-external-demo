@@ -1,0 +1,31 @@
+models:
+  - name: User
+    fields:
+      - name: email
+        type: string
+        pii: true
+        retentionPeriod: "1 year"
+      - name: phone_number
+        type: string
+        pii: true
+        operationalRetentionPeriod: "6 months"
+      - name: address
+        type: string
+        pii: true
+        retention: true
+      - name: username
+        type: string
+        pii: true
+  - name: Subscription
+    fields:
+      - name: payment_method
+        type: string
+        pii: true
+        operationalRetention: true
+      - name: subscription_id
+        type: string
+        pii: true
+      - name: billing_address
+        type: string
+        pii: true
+        retentionPeriod: "3 years"
