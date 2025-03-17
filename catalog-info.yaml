@@ -24,6 +24,8 @@ metadata:
   namespace: "default"
   name: "Backstage.Demo.API"
   description: "Demo APi for backstage\n"
+  labels:
+    example.com/custom: custom_label_value
   annotations:
     datadoghq.com/service-id-bad: test-service-id
     sonarqube.org/organization-key: kklymkovska
