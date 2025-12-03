@@ -1,11 +1,14 @@
 # =============================================================================
-# OpenTelemetry SCM Fact Collector
+# SCM Fact Collector
 # =============================================================================
-# Collects facts about OpenTelemetry adoption from repository files.
+# Collects facts from repository files.
 #
 # Configure in Spotify Portal:
 #   Config Manager > Soundcheck > soundcheck.collectors.scm.url
 #   Set to: https://github.com/ThriveMarket/backstage-config/blob/main/soundcheck/opentelemetry/fact-collector.yaml
+# 
+# NOTE: DO NOT use both .yaml files and NCUI in Soundcheck, the 'collects' specification
+# in the .yaml file will be ignored in favor of the NCUI specification.
 # =============================================================================
 
 frequency:
@@ -16,6 +19,12 @@ cache:
   duration:
     hours: 12
 collects:
+
+  # =============================================================================
+  # OpenTelemetry SCM Fact Collection
+  # Collects facts about OpenTelemetry adoption from repository files.
+  # =============================================================================
+
   # ===========================================================================
   # DEPENDENCY FILE EXISTENCE CHECKS
   # ===========================================================================
@@ -150,3 +159,275 @@ collects:
     regex: 'OTEL_EXPORTER|otel.*exporter'
     flags: i
     path: /charts/*/values.yaml
+
+  # =============================================================================
+  # Other SCM Fact Collection
+  # =============================================================================
+
+  # ===========================================================================
+  # REQUIRED FILES EXISTENCE CHECKS
+  # ===========================================================================
+  - factName: required_files_exist
+    type: exists
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      cron: '7 9 * * *'
+    data:
+      - name: license
+        path: LICENSE.md
+      - name: code_of_conduct
+        path: CODE_OF_CONDUCT.md
+      - name: contributing
+        path: CONTRIBUTING.md
+      - name: readme
+        path: README.md
+      - name: api_report
+        path: api-report.md
+
+  # ===========================================================================
+  # TRELLIS/K8S EXISTENCE CHECKS
+  # ===========================================================================
+  - factName: trellis_k8s_exists
+    type: exists
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    data:
+      - name: k8s
+        path: k8s
+      - name: kargo
+        path: kargo
+
+  # ===========================================================================
+  # LEGACY INFRASTRUCTURE CLEANUP CHECKS
+  # ===========================================================================
+  - factName: rancher_cleanup
+    type: exists
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    data:
+      - name: rancher-compose
+        path: docker/rancher-compose.yml
+      - name: docker-compose-stg
+        path: docker/docker-compose-stg.yml
+      - name: docker-compose-prd
+        path: docker/docker-compose-prd.yml
+
+  - factName: concourse_cleanup
+    type: exists
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    data:
+      - name: ci
+        path: ci
+
+  - factName: legacy_eks_cleanup
+    type: exists
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    data:
+      - name: kubernetes
+        path: kubernetes
+
+  # ===========================================================================
+  # DEVOPS/INFRASTRUCTURE CHECKS
+  # ===========================================================================
+  - factName: devops_terraform
+    type: exists
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    data:
+      - name: devops-terraform
+        path: .devops/terraform
+
+  - factName: tf-regional
+    type: exists
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    data:
+      - name: tf-regional
+        path: /tf/regional
+      - name: tf
+        path: /tf
+
+  # ===========================================================================
+  # DEPENDENCY MANAGEMENT CHECKS
+  # ===========================================================================
+  - factName: renovate
+    type: exists
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    data:
+      - name: renovate
+        path: /renovate.json
+
+  - factName: dependabot
+    type: exists
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    data:
+      - name: dependabot
+        path: /.github/dependabot.yml
+
+  # ===========================================================================
+  # PYTHON PROJECT CHECKS
+  # ===========================================================================
+  - factName: python
+    type: exists
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    data:
+      - name: requirements-txt
+        path: /requirements.txt
+      - name: pyproject-toml
+        path: /pyproject.toml
+      - name: poetry-lock
+        path: /poetry.lock
+      - name: uv-lock
+        path: /uv.lock
+
+  # ===========================================================================
+  # REGEX PATTERN CHECKS
+  # ===========================================================================
+  - factName: api-report-has-no-edit-warning
+    type: regex
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      cron: '7 11 * * *'
+    path: api-report.md
+    regex: '.*Do not edit this file.*'
+
+  - factName: uwsgi-dockerfile
+    type: regex
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    path: '**/*Dockerfile'
+    regex: '.*uwsgi.*'
+
+  - factName: uwsgi-yaml
+    type: regex
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    path: '**/*.yaml'
+    regex: '.*uwsgi.*'
+
+  - factName: uwsgi-pyproject
+    type: regex
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    path: pyproject.toml
+    regex: '.*uwsgi.*'
+
+  - factName: concouse-v4
+    type: regex
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    path: 'ci/*.yml'
+    regex: '.*\(\(DOCKER_PASS\)\).*'
+
+  - factName: team-namespace
+    type: regex
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    path: '**/k8s/**/*.yaml'
+    regex: 'namespace: .*-team'
+
+  # ===========================================================================
+  # JSON/YAML EXTRACTION CHECKS
+  # ===========================================================================
+  - factName: grace-period
+    type: json
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    path: '**/k8s/**/*.yaml'
+    data:
+      - name: grace-period
+        type: integer
+        jsonPath: '$.spec.template.spec.terminationGracePeriodSeconds'
+
+  - factName: k8s-kind
+    type: json
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    path: '**/k8s/**/*.yaml'
+    data:
+      - name: kind
+        type: string
+        jsonPath: '$.kind'
+
+  - factName: k8s-nlb
+    type: json
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    path: '**/k8s/**/*.yaml'
+    data:
+      - name: service-type
+        type: string
+        jsonPath: '$.spec.type'
+
+  - factName: kargo-warehouse
+    type: json
+    cache: false
+    filter:
+      - kind: ['Component']
+    frequency:
+      days: 1
+    path: kargo/warehouse.yaml
+    data:
+      - name: freightCreationCriteria
+        type: object
+        jsonPath: '$.spec.freightCreationCriteria'
