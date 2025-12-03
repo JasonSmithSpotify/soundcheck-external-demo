@@ -1,0 +1,152 @@
+# =============================================================================
+# OpenTelemetry SCM Fact Collector
+# =============================================================================
+# Collects facts about OpenTelemetry adoption from repository files.
+#
+# Configure in Spotify Portal:
+#   Config Manager > Soundcheck > soundcheck.collectors.scm.url
+#   Set to: https://github.com/ThriveMarket/backstage-config/blob/main/soundcheck/opentelemetry/fact-collector.yaml
+# =============================================================================
+
+frequency:
+  cron: '0 */6 * * *'  # Run every 6 hours
+filter:
+  kind: 'Component'
+cache:
+  duration:
+    hours: 12
+collects:
+  # ===========================================================================
+  # DEPENDENCY FILE EXISTENCE CHECKS
+  # ===========================================================================
+  - factName: otel_dependency_files_exist
+    type: exists
+    data:
+      # Python
+      - name: requirements_txt_exists
+        path: /requirements.txt
+      - name: pyproject_toml_exists
+        path: /pyproject.toml
+      - name: setup_py_exists
+        path: /setup.py
+      # Java
+      - name: pom_xml_exists
+        path: /pom.xml
+      - name: build_gradle_exists
+        path: /build.gradle
+      - name: build_gradle_kts_exists
+        path: /build.gradle.kts
+      # Node/JS
+      - name: package_json_exists
+        path: /package.json
+      # Go
+      - name: go_mod_exists
+        path: /go.mod
+      # PHP
+      - name: composer_json_exists
+        path: /composer.json
+
+  # ===========================================================================
+  # PYTHON - OpenTelemetry Dependency Check
+  # ===========================================================================
+  - factName: otel_python_requirements
+    type: regex
+    regex: 'opentelemetry[-_]'
+    path: /requirements.txt
+
+  - factName: otel_python_pyproject
+    type: regex
+    regex: 'opentelemetry[-_]'
+    path: /pyproject.toml
+
+  - factName: otel_python_setup
+    type: regex
+    regex: 'opentelemetry[-_]'
+    path: /setup.py
+
+  # ===========================================================================
+  # JAVA - OpenTelemetry Dependency Check
+  # ===========================================================================
+  - factName: otel_java_maven
+    type: regex
+    regex: 'io\.opentelemetry'
+    path: /pom.xml
+
+  - factName: otel_java_gradle
+    type: regex
+    regex: 'io\.opentelemetry'
+    path: /build.gradle
+
+  - factName: otel_java_gradle_kts
+    type: regex
+    regex: 'io\.opentelemetry'
+    path: /build.gradle.kts
+
+  # ===========================================================================
+  # NODE/JS - OpenTelemetry Dependency Check
+  # ===========================================================================
+  - factName: otel_node_package
+    type: regex
+    regex: '@opentelemetry/'
+    path: /package.json
+
+  # ===========================================================================
+  # GO - OpenTelemetry Dependency Check
+  # ===========================================================================
+  - factName: otel_go_mod
+    type: regex
+    regex: 'go\.opentelemetry\.io'
+    path: /go.mod
+
+  # ===========================================================================
+  # PHP - OpenTelemetry Dependency Check
+  # ===========================================================================
+  - factName: otel_php_composer
+    type: regex
+    regex: 'open-telemetry/'
+    path: /composer.json
+
+  # ===========================================================================
+  # OTEL EXPORTER CONFIGURATION CHECKS
+  # ===========================================================================
+  - factName: otel_exporter_env
+    type: regex
+    regex: 'OTEL_EXPORTER'
+    path: /.env
+
+  - factName: otel_exporter_env_example
+    type: regex
+    regex: 'OTEL_EXPORTER'
+    path: /.env.example
+
+  - factName: otel_exporter_docker_compose
+    type: regex
+    regex: 'OTEL_EXPORTER'
+    path: /docker-compose.yml
+
+  - factName: otel_exporter_docker_compose_yaml
+    type: regex
+    regex: 'OTEL_EXPORTER'
+    path: /docker-compose.yaml
+
+  - factName: otel_exporter_k8s_deployment
+    type: regex
+    regex: 'OTEL_EXPORTER'
+    path: /k8s/deployment.yaml
+
+  - factName: otel_exporter_k8s_base
+    type: regex
+    regex: 'OTEL_EXPORTER'
+    path: /k8s/base/*.yaml
+
+  - factName: otel_exporter_helm_values
+    type: regex
+    regex: 'OTEL_EXPORTER|otel.*exporter'
+    flags: i
+    path: /helm/values.yaml
+
+  - factName: otel_exporter_charts_values
+    type: regex
+    regex: 'OTEL_EXPORTER|otel.*exporter'
+    flags: i
+    path: /charts/*/values.yaml
