@@ -54,3 +54,15 @@
     value: 0
   passedMessage: No known security vulnerabilities found in dependencies.
   failedMessage: Known security vulnerabilities found in dependencies.
+
+- id: dependency-check-with-a-number-1
+  ownerEntityRef: group:default/imaginary-goats
+  name: Bad Dependency Check - No Vulnerabilities
+  description: Ensure there are no known security vulnerabilities in dependencies.
+  rule:
+    factRef: source:scope/vulnerabilitiesCount
+    path: $.count
+    operator: equals
+    value: 0
+  passedMessage: No known security vulnerabilities found in dependencies.
+  failedMessage: Known security vulnerabilities found in dependencies.
