@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<root>
+  <metadata>
+    <tags>
+      <A>seven</A>
+      <B>eight</B>
+      <C>nine</C>
+    </tags>
+    <labels>
+      <service_type>endpoint_from_xml</service_type>
+      <primary_purpose>testing_xml</primary_purpose>
+    </labels>
+  </metadata>
+  <zero>0</zero>
+  <nonZero>42</nonZero>
+  <primes>
+    <item>2</item>
+    <item>3</item>
+    <item>5</item>
+    <item>7</item>
+    <item>11</item>
+    <item>13</item>
+    <item>17</item>
+    <item>19</item>
+  </primes>
+</root>
