@@ -1,0 +1,69 @@
+package com.spotify.metadata.entity;
+
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.core.Is.is;
+
+import com.spotify.apollo.grpc.client.GrpcChannelFactoryModule;
+import com.spotify.apollo.grpc.testing.TestGrpcServerModule;
+import com.spotify.apollo.hermes.client.HermesClientModule;
+import com.spotify.apollo.module.ApolloModule;
+import com.spotify.contentcontrol.ContentControlModule;
+import com.spotify.junit5.extensions.Bigtable;
+import com.spotify.junit5.extensions.ServiceHelper;
+import java.io.IOException;
+import java.net.URI;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.List;
+import java.util.stream.Collectors;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+@ServiceHelper
+@Bigtable
+public class MainBigtableIT {
+
+  private static com.spotify.apollo.test.ServiceHelper serviceHelper;
+
+  @BeforeAll
+  static void setup(ServiceHelper.Bind serviceHelperBind, Bigtable.Bind bigtable)
+      throws IOException {
+    bigtable.deleteAllTables();
+    URI bigtableUri = URI.create("tcp://" + bigtable.getExternalAddress());
+    // service.conf enables Padlock; boot against a fake key so startup covers that wiring
+    Path padlockKeyFile = Files.createTempFile("padlock-service-key", "");
+    Files.writeString(
+        padlockKeyFile, "aabbccddeeff00112233445566778899aabbccddeeff00112233445566778899");
+    serviceHelperBind
+        .create(Main::configure)
+        .conf("metadata-api.padlock.serviceKeyPath", padlockKeyFile.toString())
+        .conf("metadata-api.bigtable.emulator.host", bigtableUri.getHost())
+        .conf("metadata-api.bigtable.emulator.port", bigtableUri.getPort())
+        .conf("metadata-api.instance-id", bigtable.dataSettings().getInstanceId())
+        .conf("metadata-api.cache.entity.mode", "no-cache")
+        .conf("ratelimits.enabled", false)
+        .conf("mirror-load.enabled", true)
+        .conf("remoteConfig.enabled", false)
+        .forwardingNonStubbedRequests(false)
+        .withModule(GrpcChannelFactoryModule.create())
+        .withModule(TestGrpcServerModule.create(Main.SERVICE_NAME))
+        .withModule(HermesClientModule.create())
+        .withModule(ContentControlModule.create("service"))
+        .domain("tst1.spotify.net")
+        .startTimeoutSeconds(20);
+
+    // starting the service internally
+    serviceHelper = serviceHelperBind.serviceHelper();
+  }
+
+  @Test
+  public void testThatServiceShouldStart() {
+    assertThat(serviceHelper.getInstance().isShutdown(), is(false));
+  }
+
+  @Test
+  public void testMainIsInitialisedWithRightApolloModules() {
+    List<ApolloModule> apolloModules = Main.modules().collect(Collectors.toList());
+    assertThat(apolloModules.size(), is(11));
+  }
+}
