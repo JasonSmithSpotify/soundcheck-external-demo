@@ -18,6 +18,16 @@
 #   dependsOn:
 #     - component:iris-messenger
 
+spec:
+  algorithmic:
+    capabilities:
+      - capability: recommendation-generation
+        present: true
+        lastChecked: "2026-09-22T00:00:00Z"
+      - capability: recommendation-surfacing
+        present: false
+        lastChecked: "2026-09-22T00:00:00Z"
+
 apiVersion: backstage.io/v1alpha1
 kind: Component
 metadata:
